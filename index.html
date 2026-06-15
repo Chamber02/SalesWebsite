@@ -1737,52 +1737,6 @@
 
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1060px;margin:0 auto" id="spec-grid">
 
-      <!-- Fleet Global -->
-      <div class="pkg-card" id="spec-global" onclick="toggleSpecUnit('global')" style="cursor:pointer">
-        <div class="pkg-name">Fleet Global</div>
-        <div class="pkg-sub">Cross-border fleet operations</div>
-        <div class="pkg-price-box">
-          <span class="pkg-from spec-rental-lbl">From only (rental)</span>
-          <span class="pkg-from spec-cash-lbl" style="display:none">Cash monthly from</span>
-          <div class="pkg-amt spec-price" data-rental="335" data-cash="255"><sup>R</sup>335</div>
-          <span class="pkg-mo spec-mo">per month (rental)</span>
-          <span class="spec-cash-upfront" style="display:none;font-size:11px;color:var(--gray);margin-top:3px;display:block">Upfront: R1 799</span>
-        </div>
-        <ul class="pkg-feats">
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Live GPS + Full Web Platform</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Reports, Geofences &amp; BI Dashboards</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Stolen Vehicle Recovery</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Crash Detection &amp; Logbook</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>24/7 Control Room + Mobile App</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Cross-Border Roaming</li>
-        </ul>
-        <div class="spec-sel-badge" style="display:none;background:var(--orange);color:#fff;text-align:center;padding:8px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;margin-top:auto">✓ SELECTED</div>
-        <button class="pkg-btn" style="margin-top:12px" onclick="event.stopPropagation();toggleSpecUnit('global')">Add to sign-up</button>
-      </div>
-
-      <!-- Fleet Mobile -->
-      <div class="pkg-card" id="spec-mobile" onclick="toggleSpecUnit('mobile')" style="cursor:pointer">
-        <div class="pkg-name">Fleet Mobile</div>
-        <div class="pkg-sub">Mobile-first fleet tracking</div>
-        <div class="pkg-price-box">
-          <span class="pkg-from spec-rental-lbl" style="color:var(--gray)">Cash only: no rental option</span>
-          <span class="pkg-from spec-cash-lbl" style="display:none">Cash monthly from</span>
-          <div class="pkg-amt spec-price" data-rental="–" data-cash="119"><sup style="font-size:16px">R</sup>119</div>
-          <span class="pkg-mo spec-mo">per month (cash)</span>
-          <span class="spec-cash-upfront" style="display:none;font-size:11px;color:var(--gray);margin-top:3px;display:block">Upfront: R1 699</span>
-        </div>
-        <ul class="pkg-feats">
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Live GPS + Full Web Platform</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Reports, Geofences &amp; BI Dashboards</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Driver Event Alerts</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>24/7 Control Room + Mobile App</li>
-          <li><span class="xmk">✕</span>Stolen Vehicle Recovery</li>
-          <li><span class="xmk">✕</span>Crash Detection / Cross-Border</li>
-        </ul>
-        <div class="spec-sel-badge" style="display:none;background:var(--orange);color:#fff;text-align:center;padding:8px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;margin-top:auto">✓ SELECTED</div>
-        <button class="pkg-btn" style="margin-top:12px" onclick="event.stopPropagation();toggleSpecUnit('mobile')">Add to sign-up</button>
-      </div>
-
       <!-- Fleet Recovery -->
       <div class="pkg-card" id="spec-recovery" onclick="toggleSpecUnit('recovery')" style="cursor:pointer">
         <div class="pkg-name">Fleet Recovery</div>
@@ -1829,29 +1783,6 @@
         <button class="pkg-btn" style="margin-top:12px" onclick="event.stopPropagation();toggleSpecUnit('trailer')">Add to sign-up</button>
       </div>
 
-      <!-- Asset Track -->
-      <div class="pkg-card" id="spec-asset" onclick="toggleSpecUnit('asset')" style="cursor:pointer">
-        <div class="pkg-name">Asset Track</div>
-        <div class="pkg-sub">Low-frequency asset tracking</div>
-        <div class="pkg-price-box">
-          <span class="pkg-from spec-rental-lbl" style="color:var(--gray)">Cash only: no rental option</span>
-          <span class="pkg-from spec-cash-lbl" style="display:none">Cash monthly from</span>
-          <div class="pkg-amt spec-price" data-rental="–" data-cash="59"><sup style="font-size:16px">R</sup>59</div>
-          <span class="pkg-mo spec-mo">per month (cash)</span>
-          <span class="spec-cash-upfront" style="display:none;font-size:11px;color:var(--gray);margin-top:3px;display:block">Upfront: R799</span>
-        </div>
-        <ul class="pkg-feats">
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Automated 2 GPS positions/day</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Stolen Vehicle Recovery</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Mobile App + Logbook</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>24/7 Support</li>
-          <li><span class="xmk">✕</span>Live continuous GPS</li>
-          <li><span class="xmk">✕</span>Web Platform / Reports</li>
-        </ul>
-        <div class="spec-sel-badge" style="display:none;background:var(--orange);color:#fff;text-align:center;padding:8px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;margin-top:auto">✓ SELECTED</div>
-        <button class="pkg-btn" style="margin-top:12px" onclick="event.stopPropagation();toggleSpecUnit('asset')">Add to sign-up</button>
-      </div>
-
       <!-- Cartrack Tag -->
       <div class="pkg-card" id="spec-tag" onclick="toggleSpecUnit('tag')" style="cursor:pointer">
         <div class="pkg-name">Cartrack Tag</div>
@@ -1877,7 +1808,15 @@
 
     </div>
 
-    <div style="display:flex;align-items:center;justify-content:space-between;max-width:1060px;margin:36px auto 0">
+    <div style="display:flex;align-items:center;justify-content:space-between;max-width:1060px;margin:28px auto 0;background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:18px 24px">
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:4px">Estimated monthly total (excl. VAT)</div>
+        <div style="font-size:12.5px;color:var(--gray)" id="spec-cost-breakdown">Package only</div>
+      </div>
+      <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:26px;color:var(--dark)" id="spec-cost-total">R0<span style="font-size:13px;font-weight:500;color:var(--gray)">/mo</span></div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;max-width:1060px;margin:20px auto 0">
       <button class="back-link" onclick="go(S.pkg?.id==='fleet-pro'||S.pkg?.id==='fleet-plus'?'s-addons-biz':'s-pkgs-biz')" style="margin:0">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 12l-4-4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Back
@@ -2320,18 +2259,8 @@
           </div>
 
           <div class="sub-head" style="margin-top:0">Vehicle Details</div>
-          <div class="fgrid">
-            <div class="fg"><span class="flbl">Registration</span><input class="finput" type="text" placeholder="e.g. GP 123 456"></div>
-            <div class="fg"><span class="flbl">Vehicle Type</span><input class="finput" type="text" placeholder="e.g. Sedan, SUV, Bakkie"></div>
-            <div class="fg"><span class="flbl">Engine No.</span><input class="finput" type="text" placeholder="Engine number (stamped on engine block)"></div>
-            <div class="fg"><span class="flbl">Chassis No. / VIN</span><input class="finput" type="text" placeholder="17-character VIN / chassis number"></div>
-            <div class="fg"><span class="flbl">Manufacturer</span><select class="fsel"><option value="">Select make</option><option>BMW</option><option>Ford</option><option>Honda</option><option>Hyundai</option><option>Isuzu</option><option>Kia</option><option>Land Rover</option><option>Mazda</option><option>Mercedes-Benz</option><option>Nissan</option><option>Suzuki</option><option>Toyota</option><option>Volkswagen</option><option>Volvo</option><option>Other</option></select></div>
-            <div class="fg"><span class="flbl">Model</span><input class="finput" type="text" placeholder="e.g. Polo GTI"></div>
-            <div class="fg"><span class="flbl">Colour</span><input class="finput" type="text" placeholder="Vehicle colour"></div>
-            <div class="fg"><span class="flbl">Year</span><input class="finput" type="text" placeholder="e.g. 2022"></div>
-            <div class="fg"><span class="flbl">Policy No.</span><input class="finput" type="text" placeholder="Insurance policy number"></div>
-            <div class="fg"><span class="flbl">Usage</span><select class="fsel"><option value="">Select</option><option>Personal</option><option>Business</option><option>Both</option></select></div>
-          </div>
+          <p style="font-size:12.5px;color:var(--gray);margin-bottom:16px">Please complete the details for each vehicle you are signing up.</p>
+          <div id="ind-vehicles-container"></div>
         </div>
         <!-- BUSINESS: Emergency Contacts -->
         <div class="biz-only">
@@ -3146,16 +3075,15 @@
   }
 
   /* ── SPECIALISED UNITS ──────────────────────── */
-  const SPEC_PRICES = { global:335, mobile:119, recovery:99, trailer:199, asset:59, tag:79 };
-  const SPEC_NAMES  = { global:'Fleet Global', mobile:'Fleet Mobile', recovery:'Fleet Recovery',
-                        trailer:'Fleet Trailer', asset:'Asset Track', tag:'Cartrack Tag' };
+  const SPEC_PRICES = { recovery:99, trailer:199, tag:79 };
+  const SPEC_NAMES  = { recovery:'Fleet Recovery', trailer:'Fleet Trailer', tag:'Cartrack Tag' };
   S.specUnits = {};
   S.specBillingCash = false;
 
   function resetSpecUnits() {
     S.specUnits = {};
     S.specBillingCash = false;
-    ['global','mobile','recovery','trailer','asset','tag'].forEach(k => {
+    ['recovery','trailer','tag'].forEach(k => {
       const card = document.getElementById('spec-'+k);
       if (card) {
         card.classList.remove('rec-hl');
@@ -3179,6 +3107,7 @@
       el.innerHTML = (v==='–') ? '<span style="font-size:22px;font-weight:700">Cash only</span>'
         : `<sup>R</sup>${v}`;
     });
+    updateSpecBar();
   }
 
   function toggleSpecUnit(key) {
@@ -3196,12 +3125,28 @@
   function updateSpecBar() {
     const selected = Object.entries(S.specUnits||{}).filter(([,v])=>v);
     const bar = document.getElementById('spec-selected-bar');
-    if (!selected.length) { bar.style.display = 'none'; return; }
-    bar.style.display = 'flex';
-    document.getElementById('spec-selected-names').textContent =
-      selected.map(([k])=>SPEC_NAMES[k]).join(', ');
-    const total = selected.reduce((s,[k]) => s + (SPEC_PRICES[k]||0), 0);
-    document.getElementById('spec-selected-price').textContent = `+R${total}/mo`;
+    if (!selected.length) {
+      if (bar) bar.style.display = 'none';
+    } else {
+      if (bar) bar.style.display = 'flex';
+      document.getElementById('spec-selected-names').textContent =
+        selected.map(([k])=>SPEC_NAMES[k]).join(', ');
+      const specTotal = selected.reduce((s,[k]) => s + (SPEC_PRICES[k]||0), 0);
+      document.getElementById('spec-selected-price').textContent = `+R${specTotal}/mo`;
+    }
+    // Combined total: fleet package + biz add-ons + spec units
+    const pkgPrice   = parseInt((S.pkg?.price||'R0').replace(/[^0-9]/g,'')) || 0;
+    const addonPrice = Object.entries(S.bizAddons||{}).reduce((s,[k,v]) => v ? s+(BIZ_ADDON_PRICES[k]||0) : s, 0);
+    const specPrice  = selected.reduce((s,[k]) => s + (SPEC_PRICES[k]||0), 0);
+    const grandTotal = pkgPrice + addonPrice + specPrice;
+    const breakdown  = [];
+    if (pkgPrice)   breakdown.push(`${S.pkg?.name||'Package'} (R${pkgPrice})`);
+    if (addonPrice) breakdown.push(`Add-ons (R${addonPrice})`);
+    if (specPrice)  breakdown.push(`Specialised units (R${specPrice})`);
+    const bdEl = document.getElementById('spec-cost-breakdown');
+    const ttEl = document.getElementById('spec-cost-total');
+    if (bdEl) bdEl.textContent = breakdown.join(' + ') || 'Package only';
+    if (ttEl) ttEl.innerHTML   = `R${grandTotal}<span style="font-size:13px;font-weight:500;color:var(--gray)">/mo</span>`;
   }
 
   function toggleSpecBilling() {
@@ -3492,6 +3437,46 @@
     indVehicleCount = n;
     const el = document.getElementById('ind-veh-count-display');
     if (el) el.textContent = n;
+    renderIndVehicles();
+  }
+
+  function renderIndVehicles() {
+    const container = document.getElementById('ind-vehicles-container');
+    if (!container) return;
+    container.innerHTML = '';
+    for (let i = 1; i <= indVehicleCount; i++) {
+      container.innerHTML += `
+        <div style="border:1.5px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;background:var(--white)">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+            <div style="width:32px;height:32px;border-radius:50%;background:var(--orange);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0">${i}</div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;color:var(--dark)">Vehicle ${i}</div>
+          </div>
+          <div class="fgrid">
+            <div class="fg"><span class="flbl">Registration</span><input class="finput" type="text" placeholder="e.g. GP 123 456"></div>
+            <div class="fg"><span class="flbl">Vehicle Type</span><input class="finput" type="text" placeholder="e.g. Sedan, SUV, Bakkie"></div>
+            <div class="fg"><span class="flbl">Engine No.</span><input class="finput" type="text" placeholder="Engine number"></div>
+            <div class="fg"><span class="flbl">Chassis No. / VIN</span><input class="finput" type="text" placeholder="17-character VIN"></div>
+            <div class="fg">
+              <span class="flbl">Manufacturer</span>
+              <select class="fsel">
+                <option value="">Select make</option>
+                <option>BMW</option><option>Ford</option><option>Honda</option><option>Hyundai</option>
+                <option>Isuzu</option><option>Kia</option><option>Land Rover</option><option>Mazda</option>
+                <option>Mercedes-Benz</option><option>Nissan</option><option>Suzuki</option>
+                <option>Toyota</option><option>Volkswagen</option><option>Volvo</option><option>Other</option>
+              </select>
+            </div>
+            <div class="fg"><span class="flbl">Model</span><input class="finput" type="text" placeholder="e.g. Polo GTI"></div>
+            <div class="fg"><span class="flbl">Colour</span><input class="finput" type="text" placeholder="Vehicle colour"></div>
+            <div class="fg"><span class="flbl">Year</span><input class="finput" type="text" placeholder="e.g. 2022"></div>
+            <div class="fg"><span class="flbl">Policy No.</span><input class="finput" type="text" placeholder="Insurance policy number"></div>
+            <div class="fg">
+              <span class="flbl">Usage</span>
+              <select class="fsel"><option value="">Select</option><option>Personal</option><option>Business</option><option>Both</option></select>
+            </div>
+          </div>
+        </div>`;
+    }
   }
 
   function setBizVehicleCount(n) {
@@ -3641,6 +3626,7 @@
     if (fs) fs.classList.add('active');
     updateStepper(n);
     if (n === 4 && S.clientType === 'business') renderBizVehicles();
+    if (n === 5 && S.clientType === 'individual') renderIndVehicles();
     if (!_histNav) _pushState({screen: 's-form', step: n}, '#form-step-'+n);
   }
 
