@@ -23,7 +23,7 @@
     .logo-tag{font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-top:2px;display:block}
 
     /* ── SCREENS ──────────────────────────────────── */
-    .screen{display:none;padding-top:155px}
+    .screen{display:none;padding-top:155px;overflow-x:hidden}
     .screen.active{display:block}
     main{min-height:100vh}
 
@@ -291,12 +291,14 @@
       .quiz-opt-sub{font-size:11.5px}
 
       /* ── Packages ── */
-      .pkg-screen{padding:20px 16px 40px}
+      .pkg-screen{padding:20px 16px 40px;overflow-x:hidden}
       .pkg-hdr h2{font-size:22px}
-      .pkg-grid,.pkg-grid.g4,.pkg-grid.g2{grid-template-columns:1fr;max-width:100%}
-      .pkg-card{padding:22px 18px}
+      .pkg-grid,.pkg-grid.g4,.pkg-grid.g2{grid-template-columns:1fr!important;max-width:100%!important}
+      #biz-pkg-grid{grid-template-columns:1fr!important;max-width:100%!important}
+      .pkg-card{padding:22px 18px;width:100%;box-sizing:border-box}
       .rec-bar{flex-direction:column;align-items:flex-start;gap:12px;padding:16px}
       .rec-bar-price{font-size:28px}
+      .screen{overflow-x:hidden}
 
       /* ── Add-ons ── */
       .addon-screen{padding:20px 16px 40px}
