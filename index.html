@@ -92,7 +92,7 @@
     .quiz-nav{display:flex;align-items:center;justify-content:space-between;margin-top:32px}
 
     /* ── PACKAGES ─────────────────────────────────── */
-    .pkg-section{padding:60px 40px 90px;background:var(--lgray)}
+    .pkg-section{padding:60px 40px 90px;background:var(--lgray);overflow-x:hidden;box-sizing:border-box}
     .pkg-hdr{text-align:center;max-width:600px;margin:0 auto 48px}
     .pkg-hdr h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:30px;color:var(--dark);margin-bottom:10px}
     .pkg-hdr p{font-size:14.5px;color:var(--gray);line-height:1.65}
@@ -241,6 +241,7 @@
     .doc-opt{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;background:#f0f0f0;color:var(--gray);padding:2px 8px;border-radius:20px;flex-shrink:0}
     .doc-upload-btn{display:flex;align-items:center;gap:7px;flex-shrink:0;background:var(--orange);color:#fff;padding:10px 20px;border-radius:8px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px;cursor:pointer;transition:background .2s;white-space:nowrap}
     .doc-upload-btn:hover{background:var(--orange-h)}
+    @keyframes spin{to{transform:rotate(360deg)}}
     @keyframes dbc-pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(208,81,25,.3)}50%{transform:scale(1.06);box-shadow:0 0 0 12px rgba(208,81,25,0)}}
     @keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}
 
@@ -337,7 +338,7 @@
       #ps-price{font-size:30px}
 
       /* ── Spec units ── */
-      .spec-selected-bar{flex-direction:column;gap:8px;text-align:center;padding:14px 16px}
+      .spec-selected-bar{padding:14px 16px}
 
       /* ── DebiCheck ── */
       #s-debicheck > div{padding:24px 16px}
@@ -1604,326 +1605,191 @@
 <!-- ════════════════════════════════════════════════
      SCREEN: ADD-ONS — BUSINESS (Fleet Pro / Fleet Plus)
 ════════════════════════════════════════════════ -->
-<section id="s-addons-biz" class="screen">
-  <div class="addon-screen">
-    <div class="addon-wrap" style="max-width:860px">
-      <div class="q-badge" style="margin-bottom:14px">Optional add-ons</div>
-      <h2 class="q-title">Enhance your fleet package</h2>
-      <p class="q-sub" style="margin-bottom:28px">Select the add-on modules that best fit your operation. You can always add more after sign-up.</p>
 
-      <!-- Package + slot bar -->
-      <div class="addon-pkg-bar" style="flex-direction:column;align-items:flex-start;gap:12px">
-        <div style="display:flex;align-items:center;justify-content:space-between;width:100%">
-          <div>
-            <div class="addon-pkg-label">Selected package</div>
-            <div class="addon-pkg-name" id="biz-addon-pkg-name">Fleet Plus</div>
-          </div>
-          <div class="addon-pkg-price" id="biz-addon-pkg-price">R229/mo</div>
-        </div>
-        <div style="width:100%">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
-            <span style="font-size:11.5px;color:var(--gray);font-weight:600">Add-ons selected</span>
-            <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--dark)" id="biz-slot-txt">0 selected</span>
-          </div>
-          <div style="display:flex;gap:6px" id="biz-slot-dots"></div>
-        </div>
-      </div>
-
-      <!-- ══ FLEET PLUS ADD-ONS ══════════════════════ -->
-      <div id="biz-addons-plus">
-        <div class="sub-head" style="margin-top:24px">📡 Telematics &amp; Sensors</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-
-          <div class="addon-card" id="bao-canbus" onclick="toggleBizAddon('canbus',79)">
-            <div class="addon-top">
-              <div class="addon-icon-wrap" style="width:44px;height:44px;font-size:20px">🔌</div>
-              <div class="addon-info">
-                <div class="addon-title" style="font-size:14px">CAN Bus Integration</div>
-                <div class="addon-desc">Direct integration with your vehicle's CAN Bus : captures live engine data, fuel consumption, RPM, odometer and diagnostic fault codes.</div>
-              </div>
-              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">
-                <div class="addon-price-tag" style="font-size:15px">+R79<small>/mo</small></div>
-                <div class="addon-toggle" id="bao-canbus-tog"><svg viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3"/></svg></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="addon-card" id="bao-cargoweight" onclick="toggleBizAddon('cargoweight',629)">
-            <div class="addon-top">
-              <div class="addon-icon-wrap" style="width:44px;height:44px;font-size:20px">⚖️</div>
-              <div class="addon-info">
-                <div class="addon-title" style="font-size:14px">Cargo Protect Weight Management</div>
-                <div class="addon-desc">Real-time cargo weight monitoring ensures load compliance, prevents overloading and detects cargo theft or tampering in transit.</div>
-              </div>
-              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">
-                <div class="addon-price-tag" style="font-size:15px">+R629<small>/mo</small></div>
-                <div class="addon-toggle" id="bao-cargoweight-tog"><svg viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3"/></svg></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="addon-card" id="bao-cement" onclick="toggleBizAddon('cement',95)">
-            <div class="addon-top">
-              <div class="addon-icon-wrap" style="width:44px;height:44px;font-size:20px">🏗️</div>
-              <div class="addon-info">
-                <div class="addon-title" style="font-size:14px">Cement Rotation Sensor</div>
-                <div class="addon-desc">Monitors concrete mixer drum rotation in real time : verify mixing compliance, detect operational irregularities and reduce waste on-site.</div>
-              </div>
-              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">
-                <div class="addon-price-tag" style="font-size:15px">+R95<small>/mo</small></div>
-                <div class="addon-toggle" id="bao-cement-tog"><svg viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3"/></svg></div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- ══ FLEET PRO ADD-ONS ═══════════════════════ -->
-      <div id="biz-addons-pro" style="display:none">
-        <div class="sub-head" style="margin-top:24px">📡 Telematics &amp; Sensors</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-
-          <div class="addon-card" id="bao-pro-fuel" onclick="toggleBizAddon('pro-fuel',36)">
-            <div class="addon-top">
-              <div class="addon-icon-wrap" style="width:44px;height:44px;font-size:20px">⛽</div>
-              <div class="addon-info">
-                <div class="addon-title" style="font-size:14px">Fuel Monitoring</div>
-                <div class="addon-desc">Real-time fuel level tracking and consumption reporting: identify fuel theft, inefficiency and excessive idling across your fleet.</div>
-              </div>
-              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">
-                <div class="addon-price-tag" style="font-size:15px">+R36<small>/mo</small></div>
-                <div class="addon-toggle" id="bao-pro-fuel-tog"><svg viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3"/></svg></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="addon-card" id="bao-pro-temp" onclick="toggleBizAddon('pro-temp',39)">
-            <div class="addon-top">
-              <div class="addon-icon-wrap" style="width:44px;height:44px;font-size:20px">🌡️</div>
-              <div class="addon-info">
-                <div class="addon-title" style="font-size:14px">Temperature Monitoring</div>
-                <div class="addon-desc">Per-probe temperature monitoring for cold chain logistics: ensure product integrity and regulatory compliance throughout transit.</div>
-              </div>
-              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">
-                <div class="addon-price-tag" style="font-size:15px">+R39<small>/mo</small></div>
-                <div class="addon-toggle" id="bao-pro-temp-tog"><svg viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3"/></svg></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="addon-card" id="bao-pro-driverid" onclick="toggleBizAddon('pro-driverid',26)">
-            <div class="addon-top">
-              <div class="addon-icon-wrap" style="width:44px;height:44px;font-size:20px">👤</div>
-              <div class="addon-info">
-                <div class="addon-title" style="font-size:14px">Driver Identification</div>
-                <div class="addon-desc">Instantly identify who is operating each vehicle: eliminate timesheet inaccuracies and ensure only authorised drivers are behind the wheel.</div>
-              </div>
-              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">
-                <div class="addon-price-tag" style="font-size:15px">+R26<small>/mo</small></div>
-                <div class="addon-toggle" id="bao-pro-driverid-tog"><svg viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3"/></svg></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="addon-card" id="bao-pro-driversp" onclick="toggleBizAddon('pro-driversp',59)">
-            <div class="addon-top">
-              <div class="addon-icon-wrap" style="width:44px;height:44px;font-size:20px">🔑</div>
-              <div class="addon-info">
-                <div class="addon-title" style="font-size:14px">Driver Identification + Start Prevent</div>
-                <div class="addon-desc">Combines driver ID with immobilisation: unrecognised drivers cannot start the vehicle, preventing unauthorised use and theft.</div>
-              </div>
-              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">
-                <div class="addon-price-tag" style="font-size:15px">+R59<small>/mo</small></div>
-                <div class="addon-toggle" id="bao-pro-driversp-tog"><svg viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3"/></svg></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="addon-card" id="bao-pro-canbus" onclick="toggleBizAddon('pro-canbus',79)">
-            <div class="addon-top">
-              <div class="addon-icon-wrap" style="width:44px;height:44px;font-size:20px">🔌</div>
-              <div class="addon-info">
-                <div class="addon-title" style="font-size:14px">CAN Bus Integration</div>
-                <div class="addon-desc">Direct integration with your vehicle's CAN Bus : captures live engine data, fuel consumption, RPM, odometer and diagnostic fault codes.</div>
-              </div>
-              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">
-                <div class="addon-price-tag" style="font-size:15px">+R79<small>/mo</small></div>
-                <div class="addon-toggle" id="bao-pro-canbus-tog"><svg viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3"/></svg></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="addon-card" id="bao-pro-cargoweight" onclick="toggleBizAddon('pro-cargoweight',629)">
-            <div class="addon-top">
-              <div class="addon-icon-wrap" style="width:44px;height:44px;font-size:20px">⚖️</div>
-              <div class="addon-info">
-                <div class="addon-title" style="font-size:14px">Cargo Protect Weight Management</div>
-                <div class="addon-desc">Real-time cargo weight monitoring ensures load compliance, prevents overloading and detects cargo theft or tampering in transit.</div>
-              </div>
-              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">
-                <div class="addon-price-tag" style="font-size:15px">+R629<small>/mo</small></div>
-                <div class="addon-toggle" id="bao-pro-cargoweight-tog"><svg viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3"/></svg></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="addon-card" id="bao-pro-cement" onclick="toggleBizAddon('pro-cement',95)">
-            <div class="addon-top">
-              <div class="addon-icon-wrap" style="width:44px;height:44px;font-size:20px">🏗️</div>
-              <div class="addon-info">
-                <div class="addon-title" style="font-size:14px">Cement Rotation Sensor</div>
-                <div class="addon-desc">Monitors concrete mixer drum rotation in real time : verify mixing compliance, detect operational irregularities and reduce waste on-site.</div>
-              </div>
-              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">
-                <div class="addon-price-tag" style="font-size:15px">+R95<small>/mo</small></div>
-                <div class="addon-toggle" id="bao-pro-cement-tog"><svg viewBox="0 0 14 14"><polyline points="2,7 5,10 12,3"/></svg></div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Total summary -->
-      <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:18px 24px;margin-top:24px;display:flex;align-items:center;justify-content:space-between">
-        <div>
-          <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:4px">Estimated monthly total (excl. VAT)</div>
-          <div style="font-size:12.5px;color:var(--gray)" id="biz-addon-breakdown">Fleet Plus (R229/mo)</div>
-        </div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:26px;color:var(--dark)" id="biz-addon-total">R229<span style="font-size:13px;font-weight:500;color:var(--gray)">/mo</span></div>
-      </div>
-
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:28px">
-        <button class="back-link" onclick="go('s-pkgs-biz')" style="margin:0">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 12l-4-4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Back to packages
-        </button>
-        <button class="btn-nav btn-next" onclick="confirmBizAddons()">Continue to sign-up →</button>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ════════════════════════════════════════════════
      SCREEN: SPECIALISED UNITS — BUSINESS
 ════════════════════════════════════════════════ -->
 <section id="s-pkgs-biz-spec" class="screen">
-  <div class="pkg-section">
-    <div class="pkg-hdr">
-      <div class="q-badge">Optional: Specialised Units</div>
-      <h2>Would you like to add any Specialised Units?</h2>
-      <p>These standalone tracking products complement your fleet package. Select one or more, or skip and continue to sign-up. All prices exclude VAT.</p>
-    </div>
+  <div style="padding:60px 40px 90px;background:var(--lgray)">
+    <div style="max-width:1060px;margin:0 auto">
 
-    <!-- Billing toggle -->
-    <div style="margin-bottom:32px;text-align:center">
-      <div class="billing-row">
-        <label class="on" id="lbl-spec-rental">Rental (36 Months)</label>
-        <button class="tog" id="spec-billing-tog" onclick="toggleSpecBilling()"></button>
-        <label id="lbl-spec-cash">Cash (Upfront + Monthly)</label>
+      <div class="pkg-hdr">
+        <div class="q-badge">Optional: Specialised Units</div>
+        <h2>Would you like to add any Specialised Units?</h2>
+        <p>These standalone tracking products complement your fleet package. Select one or more, or skip and continue to sign-up. All prices exclude VAT.</p>
       </div>
-    </div>
 
-    <!-- Selected items bar (hidden until something is selected) -->
-    <div id="spec-selected-bar" style="display:none;max-width:1060px;margin:0 auto 28px;background:var(--orange-lt);border:1.5px solid var(--orange-bd);border-radius:12px;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
-      <div>
-        <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:3px">Selected specialised units</div>
-        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:var(--dark)" id="spec-selected-names">None</div>
-      </div>
-      <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:20px;color:var(--orange)" id="spec-selected-price">+R0/mo</div>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1060px;margin:0 auto" id="spec-grid">
-
-      <!-- Fleet Recovery -->
-      <div class="pkg-card" id="spec-recovery" onclick="toggleSpecUnit('recovery')" style="cursor:pointer">
-        <div class="pkg-name">Fleet Recovery</div>
-        <div class="pkg-sub">Trailer recovery tracking</div>
-        <div class="pkg-price-box">
-          <span class="pkg-from spec-rental-lbl">From only (rental)</span>
-          <span class="pkg-from spec-cash-lbl" style="display:none">Cash monthly from</span>
-          <div class="pkg-amt spec-price" data-rental="99" data-cash="69"><sup>R</sup>99</div>
-          <span class="pkg-mo spec-mo">per month (rental)</span>
-          <span class="spec-cash-upfront" style="display:none;font-size:11px;color:var(--gray);margin-top:3px;display:block">Upfront: R999</span>
+      <!-- Billing toggle -->
+      <div style="margin-bottom:32px;text-align:center">
+        <div class="billing-row">
+          <label class="on" id="lbl-spec-rental">Rental (36 Months)</label>
+          <button class="tog" id="spec-billing-tog" onclick="toggleSpecBilling()"></button>
+          <label id="lbl-spec-cash">Cash (Upfront + Monthly)</label>
         </div>
-        <ul class="pkg-feats">
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Live GPS Location</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Web Platform + Reports</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Stolen Vehicle Recovery</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>24/7 Control Room Support</li>
-          <li><span class="xmk">✕</span>Mobile App</li>
-          <li><span class="xmk">✕</span>Driver Alerts / Logbook</li>
-        </ul>
-        <div class="spec-sel-badge" style="display:none;background:var(--orange);color:#fff;text-align:center;padding:8px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;margin-top:auto">✓ SELECTED</div>
-        <button class="pkg-btn" style="margin-top:12px" onclick="event.stopPropagation();toggleSpecUnit('recovery')">Add to sign-up</button>
       </div>
 
-      <!-- Fleet Trailer -->
-      <div class="pkg-card" id="spec-trailer" onclick="toggleSpecUnit('trailer')" style="cursor:pointer">
-        <div class="pkg-name">Fleet Trailer</div>
-        <div class="pkg-sub">Full-feature trailer tracking</div>
-        <div class="pkg-price-box">
-          <span class="pkg-from spec-rental-lbl">From only (rental)</span>
-          <span class="pkg-from spec-cash-lbl" style="display:none">Cash monthly from</span>
-          <div class="pkg-amt spec-price" data-rental="199" data-cash="129"><sup>R</sup>199</div>
-          <span class="pkg-mo spec-mo">per month (rental)</span>
-          <span class="spec-cash-upfront" style="display:none;font-size:11px;color:var(--gray);margin-top:3px;display:block">Upfront: R1 999</span>
+      <!-- Selected bar -->
+      <div id="spec-selected-bar" style="display:none;background:var(--orange-lt);border:1.5px solid var(--orange-bd);border-radius:12px;padding:14px 22px;margin-bottom:28px">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+          <div>
+            <div style="font-size:10.5px;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:3px">Selected specialised units</div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:var(--dark)" id="spec-selected-names">None</div>
+          </div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:20px;color:var(--orange)" id="spec-selected-price">+R0/mo</div>
         </div>
-        <ul class="pkg-feats">
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Live GPS + Web Platform</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Reports, Geofences &amp; BI Dashboards</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Stolen Vehicle Recovery</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Logbook</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>24/7 Control Room + Mobile App</li>
-          <li><span class="xmk">✕</span>Crash Detection / Driver Alerts</li>
-        </ul>
-        <div class="spec-sel-badge" style="display:none;background:var(--orange);color:#fff;text-align:center;padding:8px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;margin-top:auto">✓ SELECTED</div>
-        <button class="pkg-btn" style="margin-top:12px" onclick="event.stopPropagation();toggleSpecUnit('trailer')">Add to sign-up</button>
       </div>
 
-      <!-- Cartrack Tag -->
-      <div class="pkg-card" id="spec-tag" onclick="toggleSpecUnit('tag')" style="cursor:pointer">
-        <div class="pkg-name">Cartrack Tag</div>
-        <div class="pkg-sub">Anti-jamming wireless backup device</div>
-        <div class="pkg-price-box">
-          <span class="pkg-from spec-rental-lbl">From only (rental)</span>
-          <span class="pkg-from spec-cash-lbl" style="display:none">Cash monthly from</span>
-          <div class="pkg-amt spec-price" data-rental="79" data-cash="59"><sup>R</sup>79</div>
-          <span class="pkg-mo spec-mo">per month (rental)</span>
-          <span class="spec-cash-upfront" style="display:none;font-size:11px;color:var(--gray);margin-top:3px;display:block">Upfront: R799</span>
+      <!-- Cards grid -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+
+        <div class="pkg-card" id="spec-recovery" onclick="toggleSpecUnit('recovery')" style="cursor:pointer">
+          <div class="pkg-name">Fleet Recovery</div>
+          <div class="pkg-sub">Recovery-only vehicle tracking</div>
+          <div class="pkg-price-box">
+            <span class="pkg-from spec-rental-lbl">From only (rental)</span>
+            <span class="pkg-from spec-cash-lbl" style="display:none">Cash monthly from</span>
+            <div class="pkg-amt spec-price" data-rental="99" data-cash="69"><sup>R</sup>99</div>
+            <span class="pkg-mo spec-mo">per month (rental)</span>
+          </div>
+          <ul class="pkg-feats">
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Live GPS Location</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Web Platform + Reports</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Stolen Vehicle Recovery</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>24/7 Control Room Support</li>
+            <li><span class="xmk">✕</span>Mobile App</li>
+            <li><span class="xmk">✕</span>Driver Alerts / Logbook</li>
+          </ul>
+          <div class="spec-sel-badge" style="display:none">✓ SELECTED</div>
+          <button class="pkg-btn" style="margin-top:12px" onclick="event.stopPropagation();toggleSpecUnit('recovery')">Add to sign-up</button>
         </div>
-        <ul class="pkg-feats">
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Anti-jamming wireless technology</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Works in low / no-network areas</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Control Room Positioning</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Stolen Vehicle Recovery</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Discreet install on any asset</li>
-          <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>24/7 Support</li>
-        </ul>
-        <div class="spec-sel-badge" style="display:none;background:var(--orange);color:#fff;text-align:center;padding:8px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;margin-top:auto">✓ SELECTED</div>
-        <button class="pkg-btn" style="margin-top:12px" onclick="event.stopPropagation();toggleSpecUnit('tag')">Add to sign-up</button>
+
+        <div class="pkg-card" id="spec-trailer" onclick="toggleSpecUnit('trailer')" style="cursor:pointer">
+          <div class="pkg-name">Fleet Trailer</div>
+          <div class="pkg-sub">Full-feature trailer tracking</div>
+          <div class="pkg-price-box">
+            <span class="pkg-from spec-rental-lbl">From only (rental)</span>
+            <span class="pkg-from spec-cash-lbl" style="display:none">Cash monthly from</span>
+            <div class="pkg-amt spec-price" data-rental="199" data-cash="129"><sup>R</sup>199</div>
+            <span class="pkg-mo spec-mo">per month (rental)</span>
+          </div>
+          <ul class="pkg-feats">
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Live GPS + Web Platform</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Reports, Geofences &amp; BI Dashboards</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Stolen Vehicle Recovery</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Logbook</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>24/7 Control Room + Mobile App</li>
+            <li><span class="xmk">✕</span>Crash Detection / Driver Alerts</li>
+          </ul>
+          <div class="spec-sel-badge" style="display:none">✓ SELECTED</div>
+          <button class="pkg-btn" style="margin-top:12px" onclick="event.stopPropagation();toggleSpecUnit('trailer')">Add to sign-up</button>
+        </div>
+
+        <div class="pkg-card" id="spec-global" onclick="toggleSpecUnit('global')" style="cursor:pointer">
+          <div class="pkg-name">Fleet Global</div>
+          <div class="pkg-sub">Cross-border fleet operations</div>
+          <div class="pkg-price-box">
+            <span class="pkg-from spec-rental-lbl">From only (rental)</span>
+            <span class="pkg-from spec-cash-lbl" style="display:none">Cash monthly from</span>
+            <div class="pkg-amt spec-price" data-rental="335" data-cash="255"><sup>R</sup>335</div>
+            <span class="pkg-mo spec-mo">per month (rental)</span>
+          </div>
+          <ul class="pkg-feats">
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Live GPS + Full Web Platform</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Reports, Geofences &amp; BI Dashboards</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Stolen Vehicle Recovery</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Crash Detection &amp; Logbook</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>24/7 Control Room + Mobile App</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Cross-Border Roaming</li>
+          </ul>
+          <div class="spec-sel-badge" style="display:none">✓ SELECTED</div>
+          <button class="pkg-btn" style="margin-top:12px" onclick="event.stopPropagation();toggleSpecUnit('global')">Add to sign-up</button>
+        </div>
+
+        <div class="pkg-card" id="spec-mobile" onclick="toggleSpecUnit('mobile')" style="cursor:pointer">
+          <div class="pkg-name">Fleet Mobile</div>
+          <div class="pkg-sub">Mobile-first fleet tracking</div>
+          <div class="pkg-price-box">
+            <span class="pkg-from">Cash only</span>
+            <div class="pkg-amt spec-price" data-rental="119" data-cash="119"><sup>R</sup>119</div>
+            <span class="pkg-mo">per month</span>
+          </div>
+          <ul class="pkg-feats">
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Live GPS + Full Web Platform</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Reports, Geofences &amp; BI Dashboards</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Driver Event Alerts</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>24/7 Control Room + Mobile App</li>
+            <li><span class="xmk">✕</span>Stolen Vehicle Recovery</li>
+            <li><span class="xmk">✕</span>Crash Detection / Cross-Border</li>
+          </ul>
+          <div class="spec-sel-badge" style="display:none">✓ SELECTED</div>
+          <button class="pkg-btn" style="margin-top:12px" onclick="event.stopPropagation();toggleSpecUnit('mobile')">Add to sign-up</button>
+        </div>
+
+        <div class="pkg-card" id="spec-asset" onclick="toggleSpecUnit('asset')" style="cursor:pointer">
+          <div class="pkg-name">Asset Track</div>
+          <div class="pkg-sub">Low-frequency asset tracking</div>
+          <div class="pkg-price-box">
+            <span class="pkg-from">Cash only</span>
+            <div class="pkg-amt spec-price" data-rental="59" data-cash="59"><sup>R</sup>59</div>
+            <span class="pkg-mo">per month</span>
+          </div>
+          <ul class="pkg-feats">
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Automated 2 GPS positions/day</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Stolen Vehicle Recovery</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Mobile App + Logbook</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>24/7 Support</li>
+            <li><span class="xmk">✕</span>Live continuous GPS</li>
+            <li><span class="xmk">✕</span>Web Platform / Reports</li>
+          </ul>
+          <div class="spec-sel-badge" style="display:none">✓ SELECTED</div>
+          <button class="pkg-btn" style="margin-top:12px" onclick="event.stopPropagation();toggleSpecUnit('asset')">Add to sign-up</button>
+        </div>
+
+        <div class="pkg-card" id="spec-tag" onclick="toggleSpecUnit('tag')" style="cursor:pointer">
+          <div class="pkg-name">Cartrack Tag</div>
+          <div class="pkg-sub">Anti-jamming wireless backup device</div>
+          <div class="pkg-price-box">
+            <span class="pkg-from spec-rental-lbl">From only (rental)</span>
+            <span class="pkg-from spec-cash-lbl" style="display:none">Cash monthly from</span>
+            <div class="pkg-amt spec-price" data-rental="79" data-cash="59"><sup>R</sup>79</div>
+            <span class="pkg-mo spec-mo">per month (rental)</span>
+          </div>
+          <ul class="pkg-feats">
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Anti-jamming wireless technology</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Works in low / no-network areas</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Control Room Positioning</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Stolen Vehicle Recovery</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Discreet install on any asset</li>
+            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>24/7 Support</li>
+          </ul>
+          <div class="spec-sel-badge" style="display:none">✓ SELECTED</div>
+          <button class="pkg-btn" style="margin-top:12px" onclick="event.stopPropagation();toggleSpecUnit('tag')">Add to sign-up</button>
+        </div>
+
       </div>
 
-    </div>
-
-    <div style="display:flex;align-items:center;justify-content:space-between;max-width:1060px;margin:28px auto 0;background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:18px 24px">
-      <div>
-        <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:4px">Estimated monthly total (excl. VAT)</div>
-        <div style="font-size:12.5px;color:var(--gray)" id="spec-cost-breakdown">Package only</div>
+      <!-- Cost total bar -->
+      <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:18px 24px;margin-top:28px;display:flex;align-items:center;justify-content:space-between">
+        <div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--gray);margin-bottom:4px">Estimated monthly total (excl. VAT)</div>
+          <div style="font-size:12.5px;color:var(--gray)" id="spec-cost-breakdown">Package only</div>
+        </div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:26px;color:var(--dark)" id="spec-cost-total">R0<span style="font-size:13px;font-weight:500;color:var(--gray)">/mo</span></div>
       </div>
-      <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:26px;color:var(--dark)" id="spec-cost-total">R0<span style="font-size:13px;font-weight:500;color:var(--gray)">/mo</span></div>
-    </div>
 
-    <div style="display:flex;align-items:center;justify-content:space-between;max-width:1060px;margin:20px auto 0">
-      <button class="back-link" onclick="go(S.pkg?.id==='fleet-pro'||S.pkg?.id==='fleet-plus'?'s-addons-biz':'s-pkgs-biz')" style="margin:0">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 12l-4-4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Back
-      </button>
-      <div style="display:flex;gap:14px;align-items:center">
-        <button class="back-link" onclick="go('s-form')" style="margin:0;color:var(--gray)">Skip: continue without specialised units</button>
-        <button class="btn-nav btn-next" onclick="confirmSpecUnits()">Continue to sign-up →</button>
+      <!-- Nav -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:20px">
+        <button class="back-link" onclick="go('s-pkgs-biz')" style="margin:0">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 12l-4-4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Back
+        </button>
+        <div style="display:flex;gap:14px;align-items:center">
+          <button class="back-link" onclick="go('s-form')" style="margin:0;color:var(--gray)">Skip without specialised units</button>
+          <button class="btn-nav btn-next" onclick="confirmSpecUnits()">Continue to sign-up →</button>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -2561,7 +2427,7 @@
           <p style="font-size:12px;color:var(--gray);margin-top:20px;line-height:1.6">Accepted formats: PDF, JPG, PNG. Maximum 10MB per file.</p>
           <div class="form-actions">
             <button class="btn-nav btn-back-form" onclick="prevStep()">← Back</button>
-            <button class="btn-nav btn-submit" onclick="submitForm()">Submit Application ✓</button>
+            <button class="btn-nav btn-submit" onclick="launchCreditCheck()">Next: Credit Check →</button>
           </div>
         </div>
 
@@ -2634,6 +2500,71 @@
   </div>
 </section>
 
+<!-- ════════════════════════════════════════════════
+     SCREEN: CREDIT CHECK (Business only)
+════════════════════════════════════════════════ -->
+<section id="s-credit-check" class="screen">
+  <div style="min-height:calc(100vh - 155px);background:var(--lgray);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 20px">
+    <div style="background:var(--white);border-radius:20px;max-width:560px;width:100%;box-shadow:0 8px 40px rgba(0,0,0,.08);overflow:hidden">
+
+      <!-- Header -->
+      <div style="background:linear-gradient(135deg,#0a2463,#1b4dba);padding:28px 36px 24px;display:flex;align-items:center;gap:16px">
+        <div style="width:48px;height:48px;background:rgba(255,255,255,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">🔍</div>
+        <div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:4px">Powered by TransUnion</div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:20px;color:#fff">Commercial Credit Check</div>
+        </div>
+      </div>
+
+      <!-- LOADING STATE -->
+      <div id="cc-loading-panel" style="padding:52px 36px;text-align:center">
+        <div style="width:72px;height:72px;border:5px solid #eef2ff;border-top-color:#1b4dba;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 24px"></div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px;color:var(--dark);margin-bottom:8px">Checking credit bureau...</div>
+        <div id="cc-loading-msg" style="font-size:13.5px;color:var(--gray)">Connecting to TransUnion</div>
+        <div style="height:6px;background:var(--border);border-radius:3px;margin-top:24px;overflow:hidden">
+          <div id="cc-progress" style="height:100%;background:#1b4dba;border-radius:3px;width:0%;transition:width 0.8s ease"></div>
+        </div>
+      </div>
+
+      <!-- APPROVED STATE -->
+      <div id="cc-approved-panel" style="display:none;padding:40px 36px;text-align:center">
+        <div style="width:72px;height:72px;border-radius:50%;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 20px">✅</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;color:var(--dark);margin-bottom:8px">Credit Check Passed</div>
+        <p style="font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:28px">Your business credit profile meets Cartrack's requirements. Your application is approved and ready for submission.</p>
+        <div style="background:#f0f7ff;border-radius:12px;padding:16px 20px;text-align:left;margin-bottom:24px">
+          <div style="font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1b4dba;margin-bottom:12px">Bureau Reference</div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span style="color:var(--gray)">Reference No.</span><span id="cc-ref" style="font-weight:700;color:var(--dark)"></span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span style="color:var(--gray)">Status</span><span style="font-weight:700;color:#2e7d32">Approved</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:var(--gray)">Checked at</span><span id="cc-time" style="font-weight:700;color:var(--dark)"></span></div>
+        </div>
+        <button onclick="submitForm()" style="width:100%;background:var(--orange);color:#fff;border:none;padding:17px;border-radius:10px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;cursor:pointer">Submit Application ✓</button>
+      </div>
+
+      <!-- REFERRED STATE -->
+      <div id="cc-referred-panel" style="display:none;padding:40px 36px;text-align:center">
+        <div style="width:72px;height:72px;border-radius:50%;background:#fff8e1;display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 20px">⏳</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;color:var(--dark);margin-bottom:8px">Manual Review Required</div>
+        <p style="font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:20px">Your application has been referred for manual credit review. A Cartrack account manager will contact you within 2 business days with the outcome.</p>
+        <div style="background:#fff8e1;border:1.5px solid #ffe082;border-radius:10px;padding:14px 18px;text-align:left;margin-bottom:24px;font-size:13px;color:#5d4037;line-height:1.6">
+          This may be due to insufficient credit history, a recent company registration, or information requiring manual verification. This does not mean your application will be declined.
+        </div>
+        <button onclick="submitForm()" style="width:100%;background:var(--orange);color:#fff;border:none;padding:17px;border-radius:10px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;cursor:pointer">Submit for Review ✓</button>
+      </div>
+
+      <!-- DECLINED STATE -->
+      <div id="cc-declined-panel" style="display:none;padding:40px 36px;text-align:center">
+        <div style="width:72px;height:72px;border-radius:50%;background:#fde8de;display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 20px">❌</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;color:var(--dark);margin-bottom:8px">Application Declined</div>
+        <p style="font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:20px">Unfortunately your business does not meet the minimum credit requirements at this time. You may reapply after 90 days.</p>
+        <div style="background:#fde8de;border-radius:10px;padding:14px 18px;text-align:left;margin-bottom:24px;font-size:13px;color:#c04010;line-height:1.6">
+          For more information contact Cartrack on <strong>010 140 8369</strong> or email <strong>clientservices@cartrack.co.za</strong>.
+        </div>
+        <button onclick="go('s-landing')" style="width:100%;background:var(--dark);color:#fff;border:none;padding:17px;border-radius:10px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;cursor:pointer">Return to Home</button>
+      </div>
+
+    </div>
+  </div>
+</section>
 <!-- ════════════════════════════════════════════════
      SCREEN: CONFIRMATION
 ════════════════════════════════════════════════ -->
@@ -3033,7 +2964,7 @@
     S.step = 1;
     S.addons = { warranty: false, tag: false };
     document.getElementById('sum-name').textContent = pkg.name;
-    document.getElementById('sum-price').textContent = pkg.price + '/mo';
+    document.getElementById('sum-price').textContent = pkg.price;
     updateStepper(1);
     showFormStep(1);
     applyFormType();
@@ -3052,24 +2983,10 @@
       showPkgSummary(pkg);
       go('s-pkg-summary');
     } else if (pkg.id === 'fleet-pro' || pkg.id === 'fleet-plus') {
-      // Business add-ons screen
       S.bizAddons = {};
       S.bizAddonMax = pkg.id === 'fleet-pro' ? 1 : 4;
-      document.getElementById('biz-addon-pkg-name').textContent = pkg.name;
-      document.getElementById('biz-addon-pkg-price').textContent = pkg.price + '/mo';
-      // Show correct add-on section
-      document.getElementById('biz-addons-plus').style.display = pkg.id === 'fleet-plus' ? 'block' : 'none';
-      document.getElementById('biz-addons-pro').style.display  = pkg.id === 'fleet-pro'  ? 'block' : 'none';
-      // Reset all toggles
-      ['canbus','cargoweight','cement',
-       'pro-fuel','pro-temp','pro-driverid','pro-driversp','pro-canbus','pro-cargoweight','pro-cement'
-      ].forEach(k => {
-        const el = document.getElementById('bao-'+k);
-        if (el) el.classList.remove('selected');
-      });
-      updateBizAddonTotal();
-      renderBizSlots();
-      go('s-addons-biz');
+      resetSpecUnits();
+      go('s-pkgs-biz-spec');
     } else {
       resetSpecUnits();
       go('s-pkgs-biz-spec');
@@ -3096,8 +3013,7 @@
     S.bizAddons[key] = !S.bizAddons[key];
     const card = document.getElementById('bao-'+key);
     if (card) card.classList.toggle('selected', S.bizAddons[key]);
-    updateBizAddonTotal();
-    renderBizSlots();
+    updateSpecBar();
   }
 
   function renderBizSlots() {
@@ -3174,15 +3090,15 @@
   }
 
   /* ── SPECIALISED UNITS ──────────────────────── */
-  const SPEC_PRICES = { recovery:99, trailer:199, tag:79 };
-  const SPEC_NAMES  = { recovery:'Fleet Recovery', trailer:'Fleet Trailer', tag:'Cartrack Tag' };
+  const SPEC_PRICES = { recovery:99, trailer:199, global:335, mobile:119, asset:59, tag:79 };
+  const SPEC_NAMES  = { recovery:'Fleet Recovery', trailer:'Fleet Trailer', global:'Fleet Global', mobile:'Fleet Mobile', asset:'Asset Track', tag:'Cartrack Tag' };
   S.specUnits = {};
   S.specBillingCash = false;
 
   function resetSpecUnits() {
     S.specUnits = {};
     S.specBillingCash = false;
-    ['recovery','trailer','tag'].forEach(k => {
+    ['recovery','trailer','global','mobile','asset','tag'].forEach(k => {
       const card = document.getElementById('spec-'+k);
       if (card) {
         card.classList.remove('rec-hl');
@@ -3227,7 +3143,7 @@
     if (!selected.length) {
       if (bar) bar.style.display = 'none';
     } else {
-      if (bar) bar.style.display = 'flex';
+      if (bar) { bar.style.display='flex'; bar.style.flexDirection=''; bar.style.alignItems='center'; bar.style.justifyContent='space-between'; }
       document.getElementById('spec-selected-names').textContent =
         selected.map(([k])=>SPEC_NAMES[k]).join(', ');
       const specTotal = selected.reduce((s,[k]) => s + (SPEC_PRICES[k]||0), 0);
@@ -3239,7 +3155,7 @@
     const specPrice  = selected.reduce((s,[k]) => s + (SPEC_PRICES[k]||0), 0);
     const grandTotal = pkgPrice + addonPrice + specPrice;
     const breakdown  = [];
-    if (pkgPrice)   breakdown.push(`${S.pkg?.name||'Package'} (R${pkgPrice})`);
+    if (pkgPrice)   breakdown.push(`${S.pkg?.name||'Package'} (R${pkgPrice}/mo)`);
     if (addonPrice) breakdown.push(`Add-ons (R${addonPrice})`);
     if (specPrice)  breakdown.push(`Specialised units (R${specPrice})`);
     const bdEl = document.getElementById('spec-cost-breakdown');
@@ -3464,6 +3380,50 @@
   }
   let _dbcTimer = null;
   const DBC_SECONDS = 120; // 2 minutes
+
+  /* ── TRANSUNION CREDIT CHECK ─────────────────── */
+  function launchCreditCheck() {
+    ['cc-approved-panel','cc-referred-panel','cc-declined-panel']
+      .forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
+    const lp = document.getElementById('cc-loading-panel');
+    if (lp) lp.style.display = 'block';
+    const prog = document.getElementById('cc-progress');
+    if (prog) prog.style.width = '0%';
+    go('s-credit-check');
+
+    const messages = ['Connecting to TransUnion','Verifying company registration','Checking credit profile','Analysing payment history','Calculating risk score','Finalising results'];
+    let msgIdx = 0;
+    const msgEl  = document.getElementById('cc-loading-msg');
+    const msgInt = setInterval(() => {
+      msgIdx = (msgIdx + 1) % messages.length;
+      if (msgEl) msgEl.textContent = messages[msgIdx];
+      if (prog)  prog.style.width  = Math.min(100, (msgIdx / (messages.length - 1)) * 100) + '%';
+    }, 900);
+
+    setTimeout(() => {
+      clearInterval(msgInt);
+      if (prog)  prog.style.width = '100%';
+      if (lp)    lp.style.display = 'none';
+
+      const rand = Math.random();
+      if (rand < 0.70) {
+        const ref  = 'TU-' + Math.floor(10000000 + Math.random() * 90000000);
+        const now  = new Date().toLocaleTimeString('en-ZA', {hour:'2-digit', minute:'2-digit'});
+        const refEl  = document.getElementById('cc-ref');
+        const timeEl = document.getElementById('cc-time');
+        if (refEl)  refEl.textContent  = ref;
+        if (timeEl) timeEl.textContent = now;
+        const ap = document.getElementById('cc-approved-panel');
+        if (ap) ap.style.display = 'block';
+      } else if (rand < 0.90) {
+        const rp = document.getElementById('cc-referred-panel');
+        if (rp) rp.style.display = 'block';
+      } else {
+        const dp = document.getElementById('cc-declined-panel');
+        if (dp) dp.style.display = 'block';
+      }
+    }, 5500);
+  }
 
   function launchDebiCheck() {
     // Navigate first so the screen is visible
