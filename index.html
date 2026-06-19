@@ -1785,9 +1785,73 @@
           Back
         </button>
         <div style="display:flex;gap:14px;align-items:center">
-          <button class="back-link" onclick="go('s-form')" style="margin:0;color:var(--gray)">Skip without specialised units</button>
+          <button class="back-link" onclick="go('s-consent')" style="margin:0;color:var(--gray)">Skip without specialised units</button>
           <button class="btn-nav btn-next" onclick="confirmSpecUnits()">Continue to sign-up →</button>
         </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     SCREEN: CONSENT & DECLARATIONS
+════════════════════════════════════════════════ -->
+<section id="s-consent" class="screen">
+  <div style="min-height:calc(100vh - 155px);background:var(--lgray);display:flex;align-items:center;justify-content:center;padding:48px 20px">
+    <div style="background:var(--white);border-radius:20px;max-width:580px;width:100%;box-shadow:0 8px 40px rgba(0,0,0,.08);padding:40px 44px">
+
+      <div style="width:56px;height:56px;border-radius:50%;background:var(--orange-lt);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:22px">📋</div>
+      <div style="font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:8px">Before we begin</div>
+      <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;color:var(--dark);margin-bottom:8px">Please confirm the following</h2>
+      <p style="font-size:13.5px;color:var(--gray);line-height:1.7;margin-bottom:28px">We need your confirmation before you complete your application.</p>
+
+      <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:32px">
+
+        <!-- Anti-impersonation — individual only -->
+        <div id="consent-impersonation" style="background:var(--lgray);border-radius:12px;padding:18px 20px">
+          <label style="display:flex;align-items:flex-start;gap:14px;cursor:pointer">
+            <input type="checkbox" id="chk-impersonation" style="margin-top:3px;width:18px;height:18px;accent-color:var(--orange);flex-shrink:0">
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:5px">Identity Confirmation</div>
+              <div style="font-size:13px;color:var(--gray);line-height:1.6">I confirm that I am the person named in this application and that I am <strong>not impersonating any other individual</strong>. I understand that impersonation is a criminal offence under South African law and may result in prosecution.</div>
+            </div>
+          </label>
+        </div>
+
+        <!-- POPIA data consent — both individual and company -->
+        <div style="background:var(--lgray);border-radius:12px;padding:18px 20px">
+          <label style="display:flex;align-items:flex-start;gap:14px;cursor:pointer">
+            <input type="checkbox" id="chk-popia" style="margin-top:3px;width:18px;height:18px;accent-color:var(--orange);flex-shrink:0">
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:5px">Data Protection &amp; Privacy Consent (POPIA)</div>
+              <div style="font-size:13px;color:var(--gray);line-height:1.6">I consent to Cartrack (Pty) Ltd collecting, storing and processing my personal information as provided in this application in accordance with the <strong>Protection of Personal Information Act (POPIA) No. 4 of 2013</strong>. I understand my data will be used to manage my account, provide tracking services and communicate with me about my subscription.</div>
+            </div>
+          </label>
+        </div>
+
+        <!-- Marketing consent — both -->
+        <div style="background:var(--lgray);border-radius:12px;padding:18px 20px">
+          <label style="display:flex;align-items:flex-start;gap:14px;cursor:pointer">
+            <input type="checkbox" id="chk-marketing" style="margin-top:3px;width:18px;height:18px;accent-color:var(--orange);flex-shrink:0">
+            <div>
+              <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13.5px;color:var(--dark);margin-bottom:5px">Marketing Communications <span style="font-size:11px;font-weight:600;color:var(--gray);margin-left:4px">(Optional)</span></div>
+              <div style="font-size:13px;color:var(--gray);line-height:1.6">I agree to receive promotional offers, product updates and service information from Cartrack via email, SMS or phone. I may unsubscribe at any time.</div>
+            </div>
+          </label>
+        </div>
+
+      </div>
+
+      <div id="consent-error" style="display:none;background:#fde8de;border-radius:8px;padding:12px 16px;font-size:13px;color:#c04010;margin-bottom:16px">
+        Please tick the required boxes above before continuing.
+      </div>
+
+      <div style="display:flex;gap:12px">
+        <button onclick="history.back()" style="padding:13px 20px;border:1.5px solid var(--border);border-radius:8px;background:#fff;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;color:var(--gray)">← Back</button>
+        <button onclick="proceedFromConsent()" style="flex:1;background:var(--orange);color:#fff;border:none;padding:15px;border-radius:8px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;cursor:pointer;transition:background .2s" onmouseover="this.style.background='var(--orange-h)'" onmouseout="this.style.background='var(--orange)'">
+          I confirm — Continue to my details →
+        </button>
       </div>
 
     </div>
@@ -2058,51 +2122,15 @@
       <!-- STEP 3 -->
       <div class="form-step" id="fs-3">
         <div class="step-title">
-          <div class="step-t-icon ind-only" style="display:flex">🛡️</div>
+          <div class="step-t-icon ind-only" style="display:flex">💳</div>
           <div class="step-t-icon biz-only" style="display:none">💳</div>
           <div>
             <span class="step-t-num">Step 3</span>
-            <div class="step-t-head ind-only">Insurance &amp; Risk Details</div>
+            <div class="step-t-head ind-only">Bank Account Details</div>
             <div class="step-t-head biz-only">Payment Details</div>
           </div>
         </div>
-        <!-- INDIVIDUAL: Insurance + Risk -->
-        <div class="ind-only">
-          <div class="sub-head" style="margin-top:0">Insurance Details</div>
-          <div class="fgrid">
-            <div class="fg full"><span class="flbl">Is the vehicle financed?</span><div class="radio-row" style="margin-top:6px"><label class="rlbl"><input type="radio" name="ind-financed" value="yes"> Yes</label><label class="rlbl"><input type="radio" name="ind-financed" value="no" checked> No</label></div></div>
-            <div class="fg"><span class="flbl">Financial Institution</span><input class="finput" type="text" placeholder="Bank / finance house name"></div>
-            <div class="fg"><span class="flbl">Agreement Termination Date</span><input class="finput" type="text" placeholder="DD / MM / YYYY"></div>
-            <div class="fg"><span class="flbl">Insurer / Insurance Broker</span><input class="finput" type="text" placeholder="Insurer name"></div>
-            <div class="fg"><span class="flbl">Policyholder's Name</span><input class="finput" type="text" placeholder="Policyholder full name"></div>
-            <div class="fg"><span class="flbl">Current Monthly Premium (R)</span><input class="finput" type="text" placeholder="R"></div>
-            <div class="fg"><span class="flbl">Current Excess (R)</span><input class="finput" type="text" placeholder="R"></div>
-            <div class="fg full"><span class="flbl">Cover Type</span><div class="radio-row" style="margin-top:6px"><label class="rlbl"><input type="radio" name="ind-cover" value="comprehensive" checked> Comprehensive cover</label><label class="rlbl"><input type="radio" name="ind-cover" value="third"> Third party cover</label></div></div>
-            <div class="fg"><span class="flbl">Period of Uninterrupted Cover</span><input class="finput" type="text" placeholder="MM / YYYY"></div>
-            <div class="fg"><span class="flbl">No. of Claims (last 3 years, excl. windscreen)</span><input class="finput" type="text" placeholder="Number"></div>
-            <div class="fg"><span class="flbl">Date of Last Claim</span><input class="finput" type="text" placeholder="MM / YYYY"></div>
-            <div class="fg full"><span class="flbl">How long with current insurer?</span><div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px"><label class="rlbl"><input type="radio" name="ind-insurer-yrs" value="0-1"> 0–1 years</label><label class="rlbl"><input type="radio" name="ind-insurer-yrs" value="1-2"> 1–2 years</label><label class="rlbl"><input type="radio" name="ind-insurer-yrs" value="2-3"> 2–3 years</label><label class="rlbl"><input type="radio" name="ind-insurer-yrs" value="3+"> 3+ years</label></div></div>
-            <div class="fg full"><span class="flbl">Are you the regular driver?</span><div class="radio-row" style="margin-top:6px"><label class="rlbl"><input type="radio" name="ind-reg-driver" value="yes" checked> Yes</label><label class="rlbl"><input type="radio" name="ind-reg-driver" value="no"> No: if not, regular driver's ID: <input class="finput" type="text" placeholder="Driver ID number" style="display:inline;width:180px;padding:4px 8px;font-size:12px;margin-left:6px"></label></div></div>
-          </div>
-          <div class="chk-item" style="margin-top:10px"><input type="checkbox" id="ind-telematics-consent"><label for="ind-telematics-consent">In order to obtain the full benefit of my telematics service, I consent to Cartrack supplying third parties with my personal data for the purpose of obtaining a favourable offering for me.</label></div>
-          <div class="sub-head">Risk Details</div>
-          <div class="fgrid">
-            <div class="fg"><span class="flbl">Monthly Mileage (km)</span><input class="finput" type="text" placeholder="Estimated km per month"></div>
-            <div class="fg full"><span class="flbl">Usage</span><div class="radio-row" style="margin-top:6px"><label class="rlbl"><input type="radio" name="ind-usage" value="personal" checked> Personal</label><label class="rlbl"><input type="radio" name="ind-usage" value="business"> Business</label></div></div>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px">
-            <div>
-              <div class="sub-head" style="font-size:12.5px;margin-bottom:12px">Day Time Parking</div>
-              <div style="display:flex;flex-direction:column;gap:8px"><label class="rlbl"><input type="radio" name="park-day" value="locked"> Behind locked gates</label><label class="rlbl"><input type="radio" name="park-day" value="garage"> Garage</label><label class="rlbl"><input type="radio" name="park-day" value="access"> Access Controlled</label><label class="rlbl"><input type="radio" name="park-day" value="none" checked> None</label></div>
-              <div class="fg" style="margin-top:12px"><span class="flbl">Suburb</span><input class="finput" type="text" placeholder="Day parking suburb"></div>
-            </div>
-            <div>
-              <div class="sub-head" style="font-size:12.5px;margin-bottom:12px">Night Time Parking</div>
-              <div style="display:flex;flex-direction:column;gap:8px"><label class="rlbl"><input type="radio" name="park-night" value="locked"> Behind locked gates</label><label class="rlbl"><input type="radio" name="park-night" value="garage"> Garage</label><label class="rlbl"><input type="radio" name="park-night" value="access"> Access Controlled</label><label class="rlbl"><input type="radio" name="park-night" value="none" checked> None</label></div>
-              <div class="fg" style="margin-top:12px"><span class="flbl">Suburb</span><input class="finput" type="text" placeholder="Night parking suburb"></div>
-            </div>
-          </div>
-        </div>
+
         <!-- BUSINESS: Debit Order Authorisation -->
         <div class="biz-only">
           <div class="sub-head" style="margin-top:0">Debit Order Authorisation</div>
@@ -3086,7 +3114,7 @@
     if (S.addons?.warranty) extra += wPrice;
     if (S.addons?.tag) extra += 89;
     document.getElementById('sum-price').textContent = `R${base+extra}/mo`;
-    go('s-form');
+    showConsentScreen();
   }
 
   /* ── SPECIALISED UNITS ──────────────────────── */
@@ -3184,7 +3212,7 @@
   }
 
   function confirmSpecUnits() {
-    go('s-form');
+    showConsentScreen();
   }
 
   /* ── PACKAGE SUMMARY ───────────────────────── */
@@ -3381,7 +3409,37 @@
   let _dbcTimer = null;
   const DBC_SECONDS = 120; // 2 minutes
 
-  /* ── TRANSUNION CREDIT CHECK ─────────────────── */
+  /* ── CONSENT SCREEN ─────────────────────────── */
+  function showConsentScreen() {
+    // Show impersonation checkbox for individual only
+    const imp = document.getElementById('consent-impersonation');
+    if (imp) imp.style.display = S.clientType === 'individual' ? 'block' : 'none';
+    // Reset checkboxes and error
+    ['chk-impersonation','chk-popia','chk-marketing'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.checked = false;
+    });
+    const err = document.getElementById('consent-error');
+    if (err) err.style.display = 'none';
+    go('s-consent');
+  }
+
+  function proceedFromConsent() {
+    const popia  = document.getElementById('chk-popia')?.checked;
+    const imp    = document.getElementById('chk-impersonation')?.checked;
+    const needImp = S.clientType === 'individual';
+    const err = document.getElementById('consent-error');
+    if (!popia || (needImp && !imp)) {
+      if (err) err.style.display = 'block';
+      return;
+    }
+    if (err) err.style.display = 'none';
+    // Reset form to step 1 and apply client type
+    S.step = 1;
+    showFormStep(1);
+    applyFormType();
+    go('s-form');
+  }
   function launchCreditCheck() {
     ['cc-approved-panel','cc-referred-panel','cc-declined-panel']
       .forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
@@ -3660,8 +3718,8 @@
       if (document.getElementById('si1-icon')) document.getElementById('si1-icon').textContent = '👤';
       if (document.getElementById('si2-lbl')) document.getElementById('si2-lbl').innerHTML = 'Address';
       if (document.getElementById('si2-icon') && document.getElementById('si2-icon')) document.getElementById('si2-icon').textContent = '📍';
-      if (document.getElementById('si3-lbl')) document.getElementById('si3-lbl').innerHTML = 'Insurance<br>&amp; Risk';
-      if (document.getElementById('si3-icon')) document.getElementById('si3-icon').textContent = '🛡️';
+      if (document.getElementById('si3-lbl')) document.getElementById('si3-lbl').innerHTML = 'Bank<br>Account';
+      if (document.getElementById('si3-icon')) document.getElementById('si3-icon').textContent = '💳';
       if (document.getElementById('si4-lbl')) document.getElementById('si4-lbl').innerHTML = 'Payment';
       if (document.getElementById('si4-icon')) document.getElementById('si4-icon').textContent = '💳';
       if (document.getElementById('si5-lbl')) document.getElementById('si5-lbl').innerHTML = 'Vehicle<br>Details';
@@ -3691,11 +3749,17 @@
 
   function nextStep() {
     const maxStep = S.clientType === 'business' ? 7 : 6;
-    if (S.step < maxStep) { S.step++; showFormStep(S.step); window.scrollTo(0,180); }
+    let next = S.step + 1;
+    // Individual skips Step 3 (Insurance & Risk — business only)
+    if (S.clientType === 'individual' && next === 3) next = 4;
+    if (next <= maxStep) { S.step = next; showFormStep(S.step); window.scrollTo(0,180); }
   }
 
   function prevStep() {
-    if (S.step > 1) { S.step--; showFormStep(S.step); window.scrollTo(0,180); }
+    let prev = S.step - 1;
+    // Individual skips Step 3 going back too
+    if (S.clientType === 'individual' && prev === 3) prev = 2;
+    if (prev >= 1) { S.step = prev; showFormStep(S.step); window.scrollTo(0,180); }
     else {
       if (S.clientType === 'individual') go('s-pkg-summary');
       else if (S.pkg?.id === 'fleet-pro' || S.pkg?.id === 'fleet-plus') go('s-pkgs-biz-spec');
