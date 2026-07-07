@@ -1640,111 +1640,8 @@
         </div>
       </div>
 
-      <!-- Cards grid -->
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
-
-        <div class="pkg-card" id="spec-recovery" onclick="toggleSpecUnit('recovery')" style="cursor:pointer">
-          <div class="pkg-name">Fleet Recovery</div>
-          <div class="pkg-sub">Recovery-only vehicle tracking</div>
-          <div class="pkg-price-box">
-            <span class="pkg-from spec-rental-lbl">From only (rental)</span>
-            <span class="pkg-from spec-cash-lbl" style="display:none">Cash monthly from</span>
-            <div class="pkg-amt spec-price" data-rental="99" data-cash="69"><sup>R</sup>99</div>
-            <span class="pkg-mo spec-mo">per month (rental)</span>
-          </div>
-          <ul class="pkg-feats">
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Live GPS Location</li>
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Web Platform + Reports</li>
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Stolen Vehicle Recovery</li>
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>24/7 Control Room Support</li>
-            <li><span class="xmk">✕</span>Mobile App</li>
-            <li><span class="xmk">✕</span>Driver Alerts / Logbook</li>
-          </ul>
-          <div class="spec-sel-badge" style="display:none">✓ SELECTED</div>
-          <button class="pkg-btn" style="margin-top:12px" onclick="event.stopPropagation();toggleSpecUnit('recovery')">Add to sign-up</button>
-        </div>
-
-        <div class="pkg-card" id="spec-trailer" onclick="toggleSpecUnit('trailer')" style="cursor:pointer">
-          <div class="pkg-name">Fleet Trailer</div>
-          <div class="pkg-sub">Full-feature trailer tracking</div>
-          <div class="pkg-price-box">
-            <span class="pkg-from spec-rental-lbl">From only (rental)</span>
-            <span class="pkg-from spec-cash-lbl" style="display:none">Cash monthly from</span>
-            <div class="pkg-amt spec-price" data-rental="199" data-cash="129"><sup>R</sup>199</div>
-            <span class="pkg-mo spec-mo">per month (rental)</span>
-          </div>
-          <ul class="pkg-feats">
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Live GPS + Web Platform</li>
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Reports, Geofences &amp; BI Dashboards</li>
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Stolen Vehicle Recovery</li>
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Logbook</li>
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>24/7 Control Room + Mobile App</li>
-            <li><span class="xmk">✕</span>Crash Detection / Driver Alerts</li>
-          </ul>
-          <div class="spec-sel-badge" style="display:none">✓ SELECTED</div>
-          <button class="pkg-btn" style="margin-top:12px" onclick="event.stopPropagation();toggleSpecUnit('trailer')">Add to sign-up</button>
-        </div>
-
-        <div class="pkg-card" id="spec-global" onclick="toggleSpecUnit('global')" style="cursor:pointer">
-          <div class="pkg-name">Fleet Global</div>
-          <div class="pkg-sub">Cross-border fleet operations</div>
-          <div class="pkg-price-box">
-            <span class="pkg-from spec-rental-lbl">From only (rental)</span>
-            <span class="pkg-from spec-cash-lbl" style="display:none">Cash monthly from</span>
-            <div class="pkg-amt spec-price" data-rental="335" data-cash="255"><sup>R</sup>335</div>
-            <span class="pkg-mo spec-mo">per month (rental)</span>
-          </div>
-          <ul class="pkg-feats">
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Live GPS + Full Web Platform</li>
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Reports, Geofences &amp; BI Dashboards</li>
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Stolen Vehicle Recovery</li>
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Crash Detection &amp; Logbook</li>
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>24/7 Control Room + Mobile App</li>
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Cross-Border Roaming</li>
-          </ul>
-          <div class="spec-sel-badge" style="display:none">✓ SELECTED</div>
-          <button class="pkg-btn" style="margin-top:12px" onclick="event.stopPropagation();toggleSpecUnit('global')">Add to sign-up</button>
-        </div>
-
-        <div class="pkg-card" id="spec-mobile" onclick="toggleSpecUnit('mobile')" style="cursor:pointer">
-          <div class="pkg-name">Fleet Mobile</div>
-          <div class="pkg-sub">Mobile-first fleet tracking</div>
-          <div class="pkg-price-box">
-            <span class="pkg-from">Cash only</span>
-            <div class="pkg-amt spec-price" data-rental="119" data-cash="119"><sup>R</sup>119</div>
-            <span class="pkg-mo">per month</span>
-          </div>
-          <ul class="pkg-feats">
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Live GPS + Full Web Platform</li>
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Reports, Geofences &amp; BI Dashboards</li>
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Driver Event Alerts</li>
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>24/7 Control Room + Mobile App</li>
-            <li><span class="xmk">✕</span>Stolen Vehicle Recovery</li>
-            <li><span class="xmk">✕</span>Crash Detection / Cross-Border</li>
-          </ul>
-          <div class="spec-sel-badge" style="display:none">✓ SELECTED</div>
-          <button class="pkg-btn" style="margin-top:12px" onclick="event.stopPropagation();toggleSpecUnit('mobile')">Add to sign-up</button>
-        </div>
-
-        <div class="pkg-card" id="spec-asset" onclick="toggleSpecUnit('asset')" style="cursor:pointer">
-          <div class="pkg-name">Asset Track</div>
-          <div class="pkg-sub">Low-frequency asset tracking</div>
-          <div class="pkg-price-box">
-            <span class="pkg-from">Cash only</span>
-            <div class="pkg-amt spec-price" data-rental="59" data-cash="59"><sup>R</sup>59</div>
-            <span class="pkg-mo">per month</span>
-          </div>
-          <ul class="pkg-feats">
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Automated 2 GPS positions/day</li>
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Stolen Vehicle Recovery</li>
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Mobile App + Logbook</li>
-            <li><span class="chk"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>24/7 Support</li>
-            <li><span class="xmk">✕</span>Live continuous GPS</li>
-            <li><span class="xmk">✕</span>Web Platform / Reports</li>
-          </ul>
-          <div class="spec-sel-badge" style="display:none">✓ SELECTED</div>
-          <button class="pkg-btn" style="margin-top:12px" onclick="event.stopPropagation();toggleSpecUnit('asset')">Add to sign-up</button>
-        </div>
+      <!-- Cards grid — Cartrack Tag only -->
+      <div style="max-width:420px;margin:0 auto">
 
         <div class="pkg-card" id="spec-tag" onclick="toggleSpecUnit('tag')" style="cursor:pointer">
           <div class="pkg-name">Cartrack Tag</div>
@@ -1768,7 +1665,6 @@
         </div>
 
       </div>
-
       <!-- Cost total bar -->
       <div style="background:var(--white);border:1.5px solid var(--border);border-radius:12px;padding:18px 24px;margin-top:28px;display:flex;align-items:center;justify-content:space-between">
         <div>
@@ -1848,7 +1744,7 @@
       </div>
 
       <div style="display:flex;gap:12px">
-        <button onclick="history.back()" style="padding:13px 20px;border:1.5px solid var(--border);border-radius:8px;background:#fff;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;color:var(--gray)">← Back</button>
+        <button onclick="S.clientType==='business' ? go('s-pkgs-biz-spec') : go('s-addons')" style="padding:13px 20px;border:1.5px solid var(--border);border-radius:8px;background:#fff;cursor:pointer;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;color:var(--gray)">← Back</button>
         <button onclick="proceedFromConsent()" style="flex:1;background:var(--orange);color:#fff;border:none;padding:15px;border-radius:8px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;cursor:pointer;transition:background .2s" onmouseover="this.style.background='var(--orange-h)'" onmouseout="this.style.background='var(--orange)'">
           I confirm — Continue to my details →
         </button>
@@ -3118,15 +3014,15 @@
   }
 
   /* ── SPECIALISED UNITS ──────────────────────── */
-  const SPEC_PRICES = { recovery:99, trailer:199, global:335, mobile:119, asset:59, tag:79 };
-  const SPEC_NAMES  = { recovery:'Fleet Recovery', trailer:'Fleet Trailer', global:'Fleet Global', mobile:'Fleet Mobile', asset:'Asset Track', tag:'Cartrack Tag' };
+  const SPEC_PRICES = { tag:79 };
+  const SPEC_NAMES  = { tag:'Cartrack Tag' };
   S.specUnits = {};
   S.specBillingCash = false;
 
   function resetSpecUnits() {
     S.specUnits = {};
     S.specBillingCash = false;
-    ['recovery','trailer','global','mobile','asset','tag'].forEach(k => {
+    ['tag'].forEach(k => {
       const card = document.getElementById('spec-'+k);
       if (card) {
         card.classList.remove('rec-hl');
